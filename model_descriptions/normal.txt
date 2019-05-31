@@ -1,0 +1,10 @@
+epochs=50
+data=tfrecord_files_3h or lil_ftr_refrmd_3h
+w=3
+h=[1024,512]
+batch_size=128
+activation function on all layers is leaky relu except for the output layer
+no activation function is applied on the output layer
+shuffle was on
+optimizer = adam
+
