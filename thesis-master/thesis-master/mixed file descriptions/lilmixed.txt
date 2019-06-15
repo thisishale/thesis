@@ -1,0 +1,18 @@
+3h of mixed files
+speaker 2 mixed with random speech from speakers 1 31 with snr -9,-6,-3,0,3,6.
+
+mixed=y1+y2
+max_amp = max(cat(1,abs(mixed(:)),abs(y1),abs(y2)));
+mix_scaling = 1/max_amp*0.9;
+mixed = mix_scaling * mixed;
+
+power of each signal is found and then they're added proportional to snr 
+then the maximum of abs of mixed and each is found and mixed file is divided into the max*0.9
+
+related files:
+mixed_logname = 'mixed_log_3h'
+mixed_phasename = 'mixed_phase_3h'
+clean_log = 'single_dataset_log_3h'
+clean_phase = 'single_dataset_phase_3h'
+refrmd_file='ftr_refrmd_3h'
+'tfrecord_files_3h'

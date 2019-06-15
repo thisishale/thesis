@@ -8,12 +8,11 @@ mixed = mix_scaling * mixed;
 
 power of each signal is found and then they're added proportional to snr 
 then the maximum of abs of mixed is found and mixed file is divided into the max
-also the main speaker is padded with zeros if its smaller that the interferer.
 
 related files:
-mixed_logname = 'mixed_log_3h_target_norm'
-mixed_phasename = 'mixed_phase_3h_target_norm'
-clean_log = 'single_dataset_log_3h_target_norm'
-clean_phase = 'single_dataset_phase_3h_target_norm'
-refrmd_file='ftr_refrmd_3h_target_norm'
-'tfrecord_files_3h_target_norm'
+mixed_logname = 'mixed_log_3h'
+mixed_phasename = 'mixed_phase_3h'
+clean_log = 'single_dataset_log_3h'
+clean_phase = 'single_dataset_phase_3h'
+refrmd_file='ftr_refrmd_3h'
+'tfrecord_files_3h'

@@ -1,5 +1,5 @@
 epochs=50
-data=tfrecord_files_3h_sum1 or ftr_refrmd_3h_sum1
+data=tfrecord_files_3h_nopad or ftr_refrmd_3h_nopad
 w=3
 h=[1024,512]
 batch_size=128
