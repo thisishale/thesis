@@ -1,0 +1,23 @@
+files:
+data is normalized in waveform type.
+context = 3
+clean_10h
+clean_10h_bysnr
+mixed_10h
+mixed_10h_bysnr
+ftr_refrmd_10h
+mixed_log_10h
+mixed_phase_10h
+single_dataset_log_10h
+single_dataset_phase_10h
+tfrecord_files_10h
+validation_10h
+
+architecture:
+len_data = 2197278
+val_len = 97278
+2 hidden layers = [512,512]
+input>dropout,rate=0.1>hidden_layer>batchnorm>leakyrelu(alpha=0.1)
+>dropout,rate=0.2>hidden layer>leakyrelu(alpha=0.1)>output linear layer
+
+

@@ -1,11 +1,25 @@
-epochs=50
-data=tfrecord_files_3h or lil_ftr_refrmd_3h
-w=3
-h=[1024,512]
-batch_size=128
-activation function on all layers is leaky relu except for the output layer 
-batch normalization was applied before first layer activation
-no activation function is applied on the output layer
-shuffle was on
-optimizer = adam
+files:
+the main speaker files were not padded and whenever the second speaker had longer duration, 
+that duration was deleted from the longer(second) one.
+context = 3
+clean_10h_nopadding
+clean_10h_nopadding_bysnr
+mixed_10h_nopadding
+mixed_10h_nopadding_bysnr
+ftr_refrmd_10h_nopadding
+mixed_log_10h_nopadding
+mixed_phase_10h_nopadding
+single_dataset_log_10h_nopadding
+single_dataset_phase_10h_nopadding
+tfrecord_files_10h_nopadding
+validation_10h_nopadding
+
+architecture:
+len_data = 2197278
+val_len = 97278
+
+2 hidden layers = [512,512]
+input>dropout,rate=0.1>hidden_layer>batchnorm>leakyrelu(alpha=0.1)
+>dropout,rate=0.2>hidden layer>leakyrelu(alpha=0.1)>output linear layer
+
 

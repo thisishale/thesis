@@ -1,0 +1,11 @@
+data is normalized in wav form
+epochs=50
+data=tfrecord_files_10h or ftr_refrmd_10h
+w=3
+h=[512,512]
+batch_size=128
+activation function on all layers is leaky relu except for the output layer 
+batch normalization was applied before first layer activation
+no activation function is applied on the output layer
+shuffle was on
+optimizer = adamax

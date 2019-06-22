@@ -1,0 +1,7 @@
+mix of all files of speaker number 2 with random numbers =[410 455 65 459 318 50 141 275 481 485 80 488]
+of 6 other speakers:[1,5,13,15,23,31]
+in 6 snrs -9 -6 -3 0 3 6
+around 10 hour of data
+waveforms are normalized between 0 and 1
+clean file: clean_10h
+data is padded
