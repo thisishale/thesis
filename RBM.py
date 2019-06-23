@@ -1,30 +1,24 @@
-
-# coding: utf-8
-
-# In[4]:
-
-
 import numpy as np
 import pandas as pd
-import msgpack
+# import msgpack
 import glob
 import tensorflow as tf
 from tensorflow.python.ops import control_flow_ops
 from tqdm import tqdm
 import h5py
 I=0
-def da(batch_size, layer_num, weights, biases, dat_len, file_name, f_name):
-    global I    
-    for I in range(0,dat_len-batch_size,batch_size):
-        h5f = h5py.File(file_name,'r')
-        Data = h5f[f_name][I:I+batch_size]
-        h5f.close()
-        for j in range(layer_num):
-            #print(weights[j].shape)
-            #print(biases[j].shape)
-            Data = np.matmul(Data,weights[j])+biases[j]
-        yield(Data)
-def rbm_layer(n_visible, n_hidden, num_epochs, batch_size, lr, ws, bs, layer_n, len_data, name, data_name):
+# def da(batch_size, layer_num, weights, biases, dat_len, file_name, f_name):
+#     global I    
+#     for I in range(0,dat_len-batch_size,batch_size):
+#         h5f = h5py.File(file_name,'r')
+#         Data = h5f[f_name][I:I+batch_size]
+#         h5f.close()
+#         for j in range(layer_num):
+#             #print(weights[j].shape)
+#             #print(biases[j].shape)
+#             Data = np.matmul(Data,weights[j])+biases[j]
+#         yield(Data)
+def rbm_layer(n_visible, n_hidden, num_epochs, batch_size, lr, ws, bs, layer_n, len_data, it):
     ### HyperParameters
     # First, let's take a look at the hyperparameters of our model:
 
@@ -107,10 +101,12 @@ def rbm_layer(n_visible, n_hidden, num_epochs, batch_size, lr, ws, bs, layer_n, 
         #Run through all of the training data num_epochs times
         for epoch in tqdm(range(num_epochs)):
             #Train the RBM on batch_size examples at a time
-            for X_batch in da(batch_size, layer_n, ws, bs, len_data, name, data_name):
-                feed_dict = {x: X_batch} 
-                var1 = sess.run(updt, feed_dict)
+#             for X_batch in da(batch_size, layer_n, ws, bs, len_data, name, data_name):
+            Data = it_data.get_next()[0]
+            for j in range(layer_num):
+                Data = tf.matmul(it_data,tf.convert_to_tensor(weights[j]))+tf.convert_to_tensor(biases[j])
+            feed_dict = {x: Data}
+            var1 = sess.run(updt, feed_dict)
     return var1
-
 
 
