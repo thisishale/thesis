@@ -1,0 +1,9 @@
+mixed_log_10h_norm
+mixed_phase_10h_norm
+single_dataset_log_10h_norm
+single_dataset_phase_10h_norm
+ftr_refrmd_10h_norm>>every ftr_refrmd is normalized with its own mean and std.
+tfrecords_10h_norm
+ftr_refrmd_10h_norm2>>every feature is normalized
+tfrecords_10h_norm2
+
