@@ -1,0 +1,4 @@
+mix of target speaker with other randon speakers with different snrs.
+both target and interferer are padded to have the smae length.
+mixed signal is normed to be between 0 and 1.
+it has 6 interferers but can change.
