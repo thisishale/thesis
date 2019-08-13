@@ -1,0 +1,4 @@
+[512,512,512]
+sigmoid hidden layer 
+linear visible layer with no gaussian noise
+data = 500000 rows of mixed_log_norm

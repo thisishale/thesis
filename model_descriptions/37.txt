@@ -1,0 +1,42 @@
+data is randomized here so its different fromthe data in past models.
+files
+data is normalized in waveform type.
+context = 1
+clean_10h
+clean_10h_bysnr
+mixed_10h
+mixed_10h_bysnr
+mixed_log_10h_norm
+mixed_phase_10h_norm
+single_dataset_log_10h
+single_dataset_phase_10h
+mixed_10h_norm
+validation_10h_norm
+epochs = 30
+architecture
+len_data = 500000
+val_len = 100000
+2 hidden layers = [1024,512,512]
+input>hidden_layer>tanh>hidden layer>leaky
+>hidden layer>leaky>output linear layer(257)
+initializd with lecun uniform
+data is read using tfrecords and with new code.
+
+
+subset = 'filenum'
+files = tf.matching_files(os.path.join(tfrecord_path, '%s*' % subset))
+shards = tf.data.Dataset.from_tensor_slices(files)
+shards = shards.shuffle(tf.cast(tf.shape(files)[0], tf.int64))
+shards = shards.repeat()
+dataset = shards.interleave(tf.data.TFRecordDataset, cycle_length=4)
+dataset = dataset.shuffle(buffer_size=8192)
+parser = _parse_function
+dataset = dataset.apply(
+   tf.data.experimental.map_and_batch(
+       map_func=parser,
+       batch_size=batch_size))
+#        ,num_parallel_calls=config.NUM_DATA_WORKERS))
+dataset = dataset.prefetch(batch_size)
+
+
+opt = adam

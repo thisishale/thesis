@@ -1,0 +1,27 @@
+data is randomized here so its different fromthe data in past models.
+files:
+data is normalized in waveform type.
+context = 1
+clean_10h
+clean_10h_bysnr
+mixed_10h
+mixed_10h_bysnr
+mixed_log_10h_norm
+mixed_phase_10h_norm
+single_dataset_log_10h>
+single_dataset_phase_10h
+mixed_10h_norm
+validation_10h_norm
+epochs = 30
+architecture:
+len_data = 500000
+val_len = 100000
+2 hidden layers = [512,512,512]
+input>hidden_layer>tanh>hidden layer>tanh
+>hidden layer>tanh>output linear layer(257)
+network is initialized with rbm
+rbm epoch = 20
+lr = 0.00001
+tanh used instead of sigmoid in reconsttruction of gibbs sampling
+opt = sgd
+

@@ -1,0 +1,4 @@
+[1024,1024,1024]
+tanh hidden layer with gaussian noise
+linear visible layer
+data = 500000 rows of mixed_log_norm

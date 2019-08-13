@@ -20,5 +20,5 @@ val_len = 97278
 2 hidden layers = [512,512]
 input>hidden_layer>batchnorm>sigmoid
 >hidden layer>leakyrelu(alpha=0.1)>output linear layer
-
+opt = adamax
 

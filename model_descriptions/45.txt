@@ -1,0 +1,45 @@
+data is randomized here so its different fromthe data in past models.
+files
+data is normalized in waveform type.
+context = 1
+clean_30h
+mixed_30h
+mixed_log_30h_norm
+mixed_phase_30h_norm
+single_dataset_log_30h
+single_dataset_phase_30h
+development set:
+mixed_dev_sp1
+clean_dev_sp1
+mixed_log_dev_norm
+single dataset_log_dev
+mixed_dev_norm
+epochs = 50
+architecture
+len_data = 7916493
+val_len = 1477711
+2 hidden layers = [1024,1024,1024]
+input>dropout(0.2)>hidden_layer>batchnorm>tanh>dropout(0.4)>hidden layer>batchnorm>leaky
+>dropout(0.4)>hidden layer>batchnorm>leaky>dropout(0.4)>output linear layer(257)
+initializd with lecun uniform
+data is read using tfrecords and with new code.
+
+
+subset = 'filenum'
+files = tf.matching_files(os.path.join(tfrecord_path, '%s*' % subset))
+shards = tf.data.Dataset.from_tensor_slices(files)
+shards = shards.shuffle(tf.cast(tf.shape(files)[0], tf.int64))
+shards = shards.repeat()
+dataset = shards.interleave(tf.data.TFRecordDataset, cycle_length=6)
+#it reads from 6 files simoltaneously
+dataset = dataset.shuffle(buffer_size=buffersize)
+parser = _parse_function
+dataset = dataset.apply(
+   tf.data.experimental.map_and_batch(
+       map_func=parser,
+       batch_size=batch_size))
+#        ,num_parallel_calls=config.NUM_DATA_WORKERS))
+dataset = dataset.prefetch(batch_size)
+buffersize = 1000000
+
+opt = adam
