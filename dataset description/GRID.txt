@@ -1,0 +1,7 @@
+female speakers:
+<<4,7,11,15,16,18,20,21,22,23,24,25,29,31,33,34>>
+sum: 16 female sepeakers
+male speakers:
+<<1,2,3,5,6,8,9,10,12,13,14,17,19,26,27,28,30,32>>
+sum: 18 male sepeakers
+
