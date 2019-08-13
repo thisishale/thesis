@@ -1,0 +1,21 @@
+[1024,512,512]
+input>hidden_layer>tanh>hidden layer>leaky_relu
+>hidden layer>leaky_relu>output linear layer(257)
+data is randomized here so its different fromthe data in past models.
+files
+data is normalized in waveform type.
+context = 1
+clean_10h
+clean_10h_bysnr
+mixed_10h
+mixed_10h_bysnr
+mixed_log_10h_norm
+mixed_phase_10h_norm
+single_dataset_log_10h
+single_dataset_phase_10h
+mixed_10h_norm
+validation_10h_norm
+len_data = 500000
+val_len = 100000
+opt = adam
+epoch = 20 for each layer
