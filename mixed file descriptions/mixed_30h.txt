@@ -1,0 +1,11 @@
+mix of all files of speaker number 2 with random numbers at 6 snrs=random numbers 
+are saved in mat file randomfiles with format(number of target file, number of interferer, snr_num)
+of 6 other speakers:[2,6,14,27,15,24]
+4 male 2 female
+in 21 snrs -10 -9 -8 ... 0 ... 8 9 10
+random speech from interferes
+random numbers and filenames are saved in files randomnums and random names
+waveforms are normalized between 0 and 1
+clean file: clean_30h
+data is padded
+35.03 hours of data

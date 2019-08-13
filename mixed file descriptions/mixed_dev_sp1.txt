@@ -1,0 +1,20 @@
+mix of random files of speaker number 1 with random files of 13 speakers at 6 snrs=random numbers 
+are saved in mat file randomfiles with format(number of target file, snr_num) and (number of interferer, snr_num)
+m_speakers = [1,3,13,19,30,17,8];
+f_speakers = [23,34,25,33,11,4];
+7 male 6 female
+1100 files of mixed male target with male
+1000 files of mixed male target with female
+in 6 snrs -9 -6 0 3 6
+random speech from interferes
+random numbers and filenames are saved in files 
+randomfiles_dev_sp1
+(randomfiles of target(soted by natsort),snr)
+randomfiles_dev_intf_m
+(randomfiles of male interferer(soted by natsort),snr)
+randomfiles_dev_intf_f
+(randomfiles of female interferer(soted by natsort),snr)
+waveforms are normalized between 0 and 1
+clean file: clean_dev_sp1
+data is padded
+? hours of data
