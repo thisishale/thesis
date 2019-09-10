@@ -19,7 +19,8 @@ for file1=3:length(sorted_names)
             [P,Q] = rat(16e3/Fs);
             abs(P/Q*Fs-16000)
             ynew = resample(y,P,Q);
-            audiowrite(strcat(direct,'\',sorted_names3{file3}),ynew,16000);
+            disp(audioinfo(strcat(direct,'\',sorted_names3{file3})));
+%             audiowrite(strcat(direct,'\',sorted_names3{file3}),ynew,16000);
 %             [y,Fs]=audioread(strcat(raw_path,'\',sorted_names{file1},'\',sorted_names2{file2},'\',sorted_names3{file3}));
 %             audiowrite(strcat(direct,'\',sorted_names3{file3}),y,16000);
 %             clear y Fs
