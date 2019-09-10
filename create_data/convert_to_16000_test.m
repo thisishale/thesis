@@ -1,10 +1,16 @@
 
 orig_path='D:\studies\university\thesis\speech_separation_codes\du16\donesomestuff';
-raw_path = strcat(orig_path,'\sec_mixed2_6_test_all\');
-new_path = strcat(orig_path,'\test_16000\');
+% raw_path = strcat(orig_path,'\sec_mixed2_6_test_all\');
+testfile_ref = 't1_2';
+testfile = 't1_2';
+raw_path = strcat(orig_path,'\test_targets\',testfile_ref,'\');
+new_path = strcat(orig_path,'\test_16000_',testfile,'\');
 test_data = dir(raw_path)';
 test_data=natsort({test_data.name});
 i=0;
+if ~exist([new_path],'dir')
+    mkdir(new_path)
+end
 for test_folders=3:length(test_data)
     test_files=dir(strcat(raw_path,test_data{test_folders}));
     test_files_names=natsort({test_files.name});
